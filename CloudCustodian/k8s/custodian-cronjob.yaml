@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: custodian-cronjob
+spec:
+  schedule: "@daily"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: custodian-sa
+          containers:
+            - name: custodian
+              image: custodian:latest # TODO: Use own image
+              imagePullPolicy: IfNotPresent
+          restartPolicy: OnFailure
