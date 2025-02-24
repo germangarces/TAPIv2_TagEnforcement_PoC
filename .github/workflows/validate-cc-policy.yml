@@ -1,6 +1,5 @@
 # GitHub Actions workflow to validate Cloud Custodian policies
-
-name: Validate Policy  # Name of the workflow
+name: Validate Policy
 
 on:
   push:                # Trigger the workflow on push events
@@ -9,27 +8,27 @@ on:
 
 jobs:
   validate:
-    runs-on: ubuntu-latest  # Run the job on an Ubuntu runner
+    runs-on: ubuntu-latest
 
     steps:
       # Step 1: Checkout the repository code
       - name: Checkout code
-        uses: actions/checkout@v3  # Uses the official checkout action
+        uses: actions/checkout@v3
 
-      # Step 2: Set up the Python 3.7 environment
-      - name: Set up Python 3.7
-        uses: actions/setup-python@v4  # Uses the official setup-python action
+      # Step 2: Set up the Python 3.9 environment
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
       # Step 3: Upgrade pip to ensure the latest version is used
       - name: Upgrade pip
-        run: pip install --upgrade pip  # Runs pip upgrade command
+        run: pip install --upgrade pip
 
       # Step 4: Install Cloud Custodian packages and its extensions for Azure and GCP
       - name: Install Custodian
-        run: pip install c7n c7n_azure c7n_gcp  # Installs necessary packages
+        run: pip install c7n c7n_azure c7n_gcp
 
       # Step 5: Validate the Cloud Custodian policy file
       - name: Validate policy file
-        run: custodian validate CloudCustodian/policies/policy.yml  # Validates the policy defined in 'policy.yml'
+        run: custodian validate CloudCustodian/policies/policy.yml
