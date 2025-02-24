@@ -9,7 +9,7 @@ on:
 
 jobs:
   validate:
-    runs-on: ubuntu-16.04  # Run the job on an Ubuntu 16.04 runner
+    runs-on: ubuntu-latest  # Run the job on an Ubuntu runner
 
     steps:
       # Step 1: Checkout the repository code
