@@ -20,7 +20,7 @@ jobs:
       - name: Set up Python 3.7
         uses: actions/setup-python@v4  # Uses the official setup-python action
         with:
-          python-version: '3.7'       # Specifies Python version 3.7
+          python-version: '3.9'
 
       # Step 3: Upgrade pip to ensure the latest version is used
       - name: Upgrade pip
