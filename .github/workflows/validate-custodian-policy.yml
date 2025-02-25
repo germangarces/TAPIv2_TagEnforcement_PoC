@@ -4,7 +4,9 @@ name: Validate Cloud Custodian Policy
 on:
   push:                # Trigger the workflow on push events
     branches:
-      - main       # Only trigger when pushing to the 'main' branch
+      - main
+    paths:
+      - CloudCustodian/**
 
 jobs:
   validate:
