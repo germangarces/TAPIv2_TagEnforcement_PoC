@@ -2,11 +2,6 @@
 FROM python:3.9-slim
 LABEL authors="german.garces@appfire.com"
 
-# Workaround for Netskope SSL interception
-COPY netskope-cert-bundle.pem /cert
-ENV REQUESTS_CA_BUNDLE="/cert"
-ENV GIT_SSL_CAINFO="/cert"
-
 # Install git
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
