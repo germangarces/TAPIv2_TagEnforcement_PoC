@@ -11,6 +11,6 @@ spec:
           serviceAccountName: custodian-sa
           containers:
             - name: custodian
-              image: custodian:latest # TODO: Use own image
+              image: custodian:latest
               imagePullPolicy: IfNotPresent
           restartPolicy: OnFailure

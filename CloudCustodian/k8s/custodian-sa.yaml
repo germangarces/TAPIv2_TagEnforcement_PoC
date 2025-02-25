@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: custodian-sa
-  namespace: default # TODO: Use proper namespace
-  annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::211125726674:role/CloudCustodianCronRole # TODO: Use role arn

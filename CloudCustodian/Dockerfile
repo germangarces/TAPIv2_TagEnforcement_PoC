@@ -11,13 +11,16 @@ ENV GIT_SSL_CAINFO="/cert"
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
 # Install Cloud Custodian directly
-RUN pip install c7n
+RUN pip install c7n c7n-org
 
 # Clone the repository into /app
-RUN git clone https://github.com/germangarces/TAPIv2_TagEnforcement_PoC.git /app
+# Copy the policies
+COPY policies/ /policies
+#RUN git clone https://github.com/germangarces/TAPIv2_TagEnforcement_PoC.git /app
 
 # Set the working directory
 WORKDIR /app
 
 # Start command: adjust according to the policies file and parameters you need
-CMD ["custodian", "run", "-s", "output", "CloudCustodian/policies/policy.yml"]
+CMD ["custodian", "run", "--dry-run",  "--output-dir", "output", "--region", "all",  "/policies/"]
+
