@@ -1,5 +1,5 @@
 # GitHub Actions workflow to validate Cloud Custodian policies
-name: Validate Policy
+name: Validate Cloud Custodian Policy
 
 on:
   push:                # Trigger the workflow on push events

@@ -1,0 +1,575 @@
+policies:
+  - name: ec2-tag-compliance
+    resource: ec2
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: batch-compute-tag-compliance
+    resource: batch-compute
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: batch-definition-tag-compliance
+    resource: batch-definition
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: datasync-task-tag-compliance
+    resource: datasync-task
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: elasticbeanstalk-tag-compliance
+    resource: elasticbeanstalk
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: lambda-tag-compliance
+    resource: lambda
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: lightsail-instance-tag-compliance
+    resource: lightsail-instance
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: ec2-spot-fleet-request-tag-compliance
+    resource: ec2-spot-fleet-request
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: asg-tag-compliance
+    resource: asg
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: ecs-tag-compliance
+    resource: ecs
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: ecs-container-instance-tag-compliance
+    resource: ecs-container-instance
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: ecs-task-definition-tag-compliance
+    resource: ecs-task-definition
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: eks-tag-compliance
+    resource: eks
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: backup-vault-tag-compliance
+    resource: backup-vault
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: fsx-tag-compliance
+    resource: fsx
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: s3-tag-compliance
+    resource: s3
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: route-table-tag-compliance
+    resource: route-table
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: security-group-tag-compliance
+    resource: security-group
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: apigwv2-tag-compliance
+    resource: apigwv2
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: distribution-tag-compliance
+    resource: distribution
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: customer-gateway-tag-compliance
+    resource: customer-gateway
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: elastic-ip-tag-compliance
+    resource: elastic-ip
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: elb-tag-compliance
+    resource: elb
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: internet-gateway-tag-compliance
+    resource: internet-gateway
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: nat-gateway-tag-compliance
+    resource: nat-gateway
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: network-acl-tag-compliance
+    resource: network-acl
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: eni-tag-compliance
+    resource: eni
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: prefix-list-tag-compliance
+    resource: prefix-list
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: r53domain-tag-compliance
+    resource: r53domain
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: shield-protection-tag-compliance
+    resource: shield-protection
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: vpc-tag-compliance
+    resource: vpc
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: vpc-endpoint-tag-compliance
+    resource: vpc-endpoint
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: flow-log-tag-compliance
+    resource: flow-log
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: peering-connection-tag-compliance
+    resource: peering-connection
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: vpn-gateway-tag-compliance
+    resource: vpn-gateway
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: waf-tag-compliance
+    resource: waf
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: wafv2-tag-compliance
+    resource: wafv2
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: waf-regional-tag-compliance
+    resource: waf-regional
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: dynamodb-table-tag-compliance
+    resource: dynamodb-table
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: cache-cluster-tag-compliance
+    resource: cache-cluster
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: rds-tag-compliance
+    resource: rds
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: rds-cluster-tag-compliance
+    resource: rds-cluster
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: redshift-tag-compliance
+    resource: redshift
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: rds-cluster-snapshot-tag-compliance
+    resource: rds-cluster-snapshot
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: rds-snapshot-tag-compliance
+    resource: rds-snapshot
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: account-tag-compliance
+    resource: account
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: acm-certificate-tag-compliance
+    resource: acm-certificate
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: cloudtrail-tag-compliance
+    resource: cloudtrail
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: identity-pool-tag-compliance
+    resource: identity-pool
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: user-pool-tag-compliance
+    resource: user-pool
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: iam-policy-tag-compliance
+    resource: iam-policy
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: iam-role-tag-compliance
+    resource: iam-role
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: org-policy-tag-compliance
+    resource: org-policy
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: iam-certificate-tag-compliance
+    resource: iam-certificate
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: iam-user-tag-compliance
+    resource: iam-user
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: iam-oidc-provider-tag-compliance
+    resource: iam-oidc-provider
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: iam-saml-provider-tag-compliance
+    resource: iam-saml-provider
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: secrets-manager-tag-compliance
+    resource: secrets-manager
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: ses-email-identity-tag-compliance
+    resource: ses-email-identity
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: key-pair-tag-compliance
+    resource: key-pair
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: cfn-tag-compliance
+    resource: cfn
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: alarm-tag-compliance
+    resource: alarm
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: composite-alarm-tag-compliance
+    resource: composite-alarm
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: log-group-tag-compliance
+    resource: log-group
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: event-bus-tag-compliance
+    resource: event-bus
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: org-unit-tag-compliance
+    resource: org-unit
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: rds-subscription-tag-compliance
+    resource: rds-subscription
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: catalog-portfolio-tag-compliance
+    resource: catalog-portfolio
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: catalog-product-tag-compliance
+    resource: catalog-product
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: ssm-document-tag-compliance
+    resource: ssm-document
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: ssm-parameter-tag-compliance
+    resource: ssm-parameter
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: step-machine-tag-compliance
+    resource: step-machine
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: workspaces-tag-compliance
+    resource: workspaces
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: sagemaker-model-tag-compliance
+    resource: sagemaker-model
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: athena-work-group-tag-compliance
+    resource: athena-work-group
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: glue-crawler-tag-compliance
+    resource: glue-crawler
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: glue-job-tag-compliance
+    resource: glue-job
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: kinesis-tag-compliance
+    resource: kinesis
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: kinesis-video-tag-compliance
+    resource: kinesis-video
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: firehose-tag-compliance
+    resource: firehose
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: sns-tag-compliance
+    resource: sns
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
+  - name: sqs-tag-compliance
+    resource: sqs
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+    - or:
+      - tag:Environment: absent
