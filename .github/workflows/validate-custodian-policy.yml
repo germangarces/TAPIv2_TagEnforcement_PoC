@@ -31,4 +31,4 @@ jobs:
 
       # Step 5: Validate the Cloud Custodian policy file
       - name: Validate policy file
-        run: custodian validate CloudCustodian/policies/policy.yml
+        run: custodian validate CloudCustodian/policies/*

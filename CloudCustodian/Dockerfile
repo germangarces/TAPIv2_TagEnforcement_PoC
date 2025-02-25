@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN pip install c7n c7n-org
 
 # Copy the policies
-COPY policies/ /policies
+COPY CloudCustodian/policies/ /policies
 
 # Set the working directory
 WORKDIR /app
