@@ -7,6 +7,8 @@ Are being deployed to DevOps Eu Staging AWS account.
 
 ## Cloud Custodian
 
+TODO: Automate the creation of policies.
+
 ### Deploy Cloud Custodian
 
 > The deployed role has the `AmazonS3ReadOnlyAccess` IAM policy attached to it.
