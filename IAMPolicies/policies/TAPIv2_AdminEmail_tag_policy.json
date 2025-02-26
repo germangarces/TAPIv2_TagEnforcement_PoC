@@ -130,8 +130,6 @@
         "arn:aws:elasticbeanstalk:*:*:application/*",
         "arn:aws:elasticfilesystem:*:*:file-system/*",
         "arn:aws:elasticloadbalancing:*:*:loadbalancer/*",
-        "arn:aws:elasticloadbalancing:*:*:loadbalancer/app/*/*",
-        "arn:aws:elasticloadbalancing:*:*:loadbalancer/net/*/*",
         "arn:aws:es:*:*:domain/*",
         "arn:aws:events:*:*:event-bus/*",
         "arn:aws:firehose:*:*:deliverystream/*",
