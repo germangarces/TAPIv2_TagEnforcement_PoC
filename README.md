@@ -75,4 +75,4 @@ I acknowledge there are areas for improvement, but I will not proceed with any c
 - Develop a tool that lets us define policies in an agnostic format, automatically translating and distributing them in each tool's required format.
 - Implement a CI/CD pipeline for any of the approaches.
 - Improve the credential management for Cloud Custodian deployment
-- Sync with Lukasz and it's Checkov.io implementation.
+- Sync with Lukasz and his Checkov.io implementation.
