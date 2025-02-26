@@ -47,11 +47,7 @@ eksctl utils associate-iam-oidc-provider --cluster $cluster_name --approve
 
 #### 3. Create the IAM role and service account
 
-(Optional) Create IAM Policy
-
-```bash
-aws iam create-policy --policy-name custodian-policy --policy-document file://infrastructure/aws-iam-policy.json
-```
+We won't create a policy. We will use AWS-managed `ResourceGroupsandTagEditorFullAccess` policy.
 
 Create and associate IAM Role
 
