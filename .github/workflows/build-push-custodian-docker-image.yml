@@ -2,6 +2,11 @@ name: Build and Push Cloud Custodian Docker Image
 
 on:
   workflow_dispatch:
+    inputs:
+      docker_tag:
+        description: 'Docker tag'
+        required: false
+        default: 'latest'
 
 jobs:
   build-and-push:
