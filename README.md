@@ -1,89 +1,58 @@
 # TAPIv2_TagEnforcement_PoC
 This repository hosts a PoC for TAPIv2 Tagging Enforcement. It includes IaC for AWS SCPs, AWS IAM Policies, Cloud Custodian, and Checkov, along with a set of tailored policies for each tool.
 
-## Service Control Policies
+A brief summary of our tagging policy approaches with direct focus on risks and limitations can be found on [the Wiki](https://github.com/germangarces/TAPIv2_TagEnforcement_PoC/wiki).
 
-Are being deployed to DevOps Eu Staging AWS account.
+### Service Control Policies
 
-## Cloud Custodian
+This project leverages Terraform to deploy AWS Service Control Policies (SCPs).
 
-TODO: Automate the creation of policies.
+A map holds each SCP’s details (e.g., name and path), and the `main.tf` iterates over this map to create each SCP, associating it with an Organizational Unit provided as a parameter.
 
-### Deploy Cloud Custodian
+The policies themselves are stored in the `SCP/policies directory`.
 
-> The deployed role has the `AmazonS3ReadOnlyAccess` IAM policy attached to it.
+### IAM Policies
 
+IAM policies are defined in the `IAM/policies` directory. Each policy is defined in a separate file.
 
-#### 1. Build and push the docker image
+There is no IaC yet. The policies are manually created in the AWS Console.
 
-I created a Github Action that builds and push the image for you. If you want to do it manually, follow the steps below.
+### Cloud Custodian
 
-I did this because Netskope SSL interception was blocking the connection to Docker Hub.
+**Docker Image & Pipeline:**
 
-```bash
-docker build -t softwareplant/custodian:latest .
-docker push softwareplant/custodian:latest
-```
+The Cloud Custodian application and its policies are combined into a Docker image. This image can be built and pushed via a GitHub Actions pipeline (see [build-push-custodian-docker-image.yml](https://github.com/germangarces/TAPIv2_TagEnforcement_PoC/actions/workflows/build-push-custodian-docker-image.yml)).
 
-#### 2. Create an IAM OIDC provider for your cluster
+**Policy Files:**
 
-```bash
-cluster_name=devops-dts-ohio-aio
-oidc_id=$(aws eks describe-cluster --name $cluster_name --query "cluster.identity.oidc.issuer" --output text | cut -d '/' -f 5)
-```
-Determine whether an IAM OIDC provider with your cluster’s issuer ID is already in your account.
+Policies are located in the `CloudCustodian/policies` directory.
 
-```bash
-aws iam list-open-id-connect-providers | grep $oidc_id | cut -d "/" -f4
-```
+**Deployment:**
 
-**If output is returned, then you already have an IAM OIDC provider for your cluster and you can skip the next step.** If no output is returned, then you must create an IAM OIDC provider for your cluster.
+The Docker image is deployed as a cronjob on an EKS cluster within the AWS DevOps DTS account (ID: `891377226793`).
 
-Create an IAM OIDC identity provider for your cluster with the following command.
+**Authentication:**
 
-```bash
-eksctl utils associate-iam-oidc-provider --cluster $cluster_name --approve
-```
+> This was done using AWS Documentation. Here is the [link](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)
 
-#### 3. Create the IAM role and service account
+Authentication is managed through a service account and a role that includes the following policies:
 
-We won't create a policy. We will use AWS-managed policies:
 - `ResourceGroupsandTagEditorFullAccess`
+- `ResourceGroupsTaggingAPITagUntagSupportedResources`
 - `ReadOnlyAccess`
 
-Create and associate IAM Role
+The role is created by Justin Spies and managed via Terraform. It currently looks like this:
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Federated": "arn:aws:iam::891377226793:oidc-provider/oidc.eks.us-east-2.amazonaws.com/id/E63230A9FA465312556E6E06F317316F"
-      },
-      "Action": "sts:AssumeRoleWithWebIdentity",
-      "Condition": {
-        "StringEquals": {
-          "oidc.eks.us-east-2.amazonaws.com/id/E63230A9FA465312556E6E06F317316F:aud": "sts.amazonaws.com",
-          "oidc.eks.us-east-2.amazonaws.com/id/E63230A9FA465312556E6E06F317316F:sub": "system:serviceaccount:devops:custodian-sa"
-        }
-      }
-    }
-  ]
-}
-```
+> Authentication to DockerHub is done via a secret in the Kubernetes cluster.
 
-After creating the service account, you must annotate it with the IAM role ARN.
+**Infrastructure Configuration:**
+
+The service account and cronjob configuration are defined in the CloudCustodian/infrastructure directory.
+
+**Policy Validation:**
+
+Changes to the policies are automatically validated through GitHub Actions. You can also validate them locally using:
 
 ```bash
-kubectl annotate serviceaccount -n $namespace $service_account eks.amazonaws.com/role-arn=arn:aws:iam::$account_id:role/my-role
-```
-
-To create a secret with Docker Hub credentials:
-
-> TODO: Use AWS Secrets Manager
-
-```bash
-kubectl create secret docker-registry dockerhub-credential --docker-username=<your-name> --docker-password=<your-pword> -n <your-namespace>
+custodian validate CloudCustodian/policies/
 ```
