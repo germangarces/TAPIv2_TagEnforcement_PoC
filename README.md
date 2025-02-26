@@ -3,21 +3,29 @@ This repository hosts a PoC for TAPIv2 Tagging Enforcement. It includes IaC for 
 
 A brief summary of our tagging policy approaches with direct focus on risks and limitations can be found on [the Wiki](https://github.com/germangarces/TAPIv2_TagEnforcement_PoC/wiki).
 
-### Service Control Policies
+### 1. Service Control Policies
+
+**Deployment:**
 
 This project leverages Terraform to deploy AWS Service Control Policies (SCPs).
 
-A map holds each SCP’s details (e.g., name and path), and the `main.tf` iterates over this map to create each SCP, associating it with an Organizational Unit provided as a parameter.
+A map holds each SCP’s details (e.g., name and path), and the `main.tf` iterates over this map to create each SCP, attaching it to an Organizational Unit provided as a parameter.
 
-The policies themselves are stored in the `SCP/policies` directory.
+**Policy Files:**
 
-### IAM Policies
+Policies are located in the `SCP/policies` directory.
 
-IAM policies are defined in the `IAM/policies` directory. Each policy is defined in a separate file.
+### 2. IAM Policies
+
+**Deployment:**
 
 There is no IaC yet. The policies are manually created in the AWS Console.
 
-### Cloud Custodian
+**Policy Files:**
+
+Policies are located in the `IAM/policies` directory. Each policy is defined in a separate file.
+
+### 3. Cloud Custodian
 
 **Docker Image & Pipeline:**
 
