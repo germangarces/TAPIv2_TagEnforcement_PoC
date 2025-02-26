@@ -30,4 +30,4 @@ jobs:
           context: .
           file: CloudCustodian/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/custodian:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/custodian:${{ github.event.inputs.docker_tag }}
