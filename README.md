@@ -1,5 +1,5 @@
 # TAPIv2_TagEnforcement_PoC
-This repository hosts a PoC for TAPIv2 Tagging Enforcement. It includes IaC for AWS SCPs, AWS IAM Policies, Cloud Custodian, and Checkov, along with a set of tailored policies for each tool.
+This repository hosts a PoC for TAPIv2 Tagging Enforcement. It includes IaC for AWS SCPs, AWS IAM Policies and Cloud Custodian, along with a set of tailored policies for each tool.
 
 A brief summary of our tagging policy approaches with direct focus on risks and limitations can be found on [the Wiki](https://github.com/germangarces/TAPIv2_TagEnforcement_PoC/wiki).
 
@@ -9,7 +9,7 @@ This project leverages Terraform to deploy AWS Service Control Policies (SCPs).
 
 A map holds each SCP’s details (e.g., name and path), and the `main.tf` iterates over this map to create each SCP, associating it with an Organizational Unit provided as a parameter.
 
-The policies themselves are stored in the `SCP/policies directory`.
+The policies themselves are stored in the `SCP/policies` directory.
 
 ### IAM Policies
 
@@ -41,13 +41,13 @@ Authentication is managed through a service account and a role that includes the
 - `ResourceGroupsTaggingAPITagUntagSupportedResources`
 - `ReadOnlyAccess`
 
-The role is created by Justin Spies and managed via Terraform. It currently looks like this:
+The role is created by Justin Spies and managed via Terraform.
 
 > Authentication to DockerHub is done via a secret in the Kubernetes cluster.
 
 **Infrastructure Configuration:**
 
-The service account and cronjob configuration are defined in the CloudCustodian/infrastructure directory.
+The service account and cronjob configuration are defined in the `CloudCustodian/infrastructure` directory.
 
 **Policy Validation:**
 
