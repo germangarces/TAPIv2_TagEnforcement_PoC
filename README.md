@@ -13,6 +13,7 @@ TODO: Automate the creation of policies.
 
 > The deployed role has the `AmazonS3ReadOnlyAccess` IAM policy attached to it.
 
+
 #### 1. Build and push the docker image
 
 ```bash
@@ -50,10 +51,29 @@ aws iam create-policy --policy-name custodian-policy --policy-document file://in
 
 Create and associate IAM Role
 
-We use `eksctl`. Install with `brew tap weaveworks/tap & brew install weaveworks/tap/eksctl`.
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::891377226793:oidc-provider/oidc.eks.us-east-2.amazonaws.com/id/E63230A9FA465312556E6E06F317316F"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "oidc.eks.us-east-2.amazonaws.com/id/E63230A9FA465312556E6E06F317316F:aud": "sts.amazonaws.com",
+          "oidc.eks.us-east-2.amazonaws.com/id/E63230A9FA465312556E6E06F317316F:sub": "system:serviceaccount:devops:custodian-sa"
+        }
+      }
+    }
+  ]
+}
+```
+
+To create a secret with Docker Hub credentials:
 
 ```bash
-eksctl create iamserviceaccount --name custodian-sa --namespace devops --cluster $cluster_name \
-    --role-name custodian-role \
-    --attach-policy-arn arn:aws:iam::111122223333:policy/my-policy --approve
+kubectl create secret docker-registry dockerhub-credential --docker-username=<your-name> --docker-password=<your-pword> -n <your-namespace>
 ```

@@ -11,7 +11,8 @@ spec:
           serviceAccountName: custodian-sa
           containers:
             - name: custodian
-              image: custodian:latest
+              image: softwareplant/custodian:latest
               imagePullPolicy: IfNotPresent
-              command: ["validate"]  # TODO: Change this to the command you want to run
           restartPolicy: OnFailure
+          imagePullSecrets:
+            - name: dockerhub-credential
