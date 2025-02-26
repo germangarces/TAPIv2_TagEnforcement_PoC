@@ -12,7 +12,7 @@ spec:
           containers:
             - name: custodian
               image: softwareplant/custodian:latest
-              imagePullPolicy: IfNotPresent
+              imagePullPolicy: Always
           restartPolicy: OnFailure
           imagePullSecrets:
             - name: dockerhub-credential

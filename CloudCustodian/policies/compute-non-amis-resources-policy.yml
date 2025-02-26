@@ -552,3 +552,7 @@ policies:
     filters:
     - or:
       - tag:Environment: absent
+    actions:
+      - type: tag
+        tags:
+          Environment: DTS
