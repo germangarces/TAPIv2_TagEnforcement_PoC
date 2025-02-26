@@ -11,7 +11,7 @@ spec:
           serviceAccountName: custodian-sa
           containers:
             - name: custodian
-              image: softwareplant/custodian:0.1.0-alpha.1
+              image: softwareplant/custodian:0.1.0-alpha.1 # TODO: Parametrize tag
               imagePullPolicy: Always
           restartPolicy: OnFailure
           imagePullSecrets:
