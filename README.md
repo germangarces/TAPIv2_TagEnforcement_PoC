@@ -47,7 +47,9 @@ eksctl utils associate-iam-oidc-provider --cluster $cluster_name --approve
 
 #### 3. Create the IAM role and service account
 
-We won't create a policy. We will use AWS-managed `ResourceGroupsandTagEditorFullAccess` policy.
+We won't create a policy. We will use AWS-managed policies:
+- `ResourceGroupsandTagEditorFullAccess`
+- `ReadOnlyAccess`
 
 Create and associate IAM Role
 
@@ -72,7 +74,15 @@ Create and associate IAM Role
 }
 ```
 
+After creating the service account, you must annotate it with the IAM role ARN.
+
+```bash
+kubectl annotate serviceaccount -n $namespace $service_account eks.amazonaws.com/role-arn=arn:aws:iam::$account_id:role/my-role
+```
+
 To create a secret with Docker Hub credentials:
+
+> TODO: Use AWS Secrets Manager
 
 ```bash
 kubectl create secret docker-registry dockerhub-credential --docker-username=<your-name> --docker-password=<your-pword> -n <your-namespace>

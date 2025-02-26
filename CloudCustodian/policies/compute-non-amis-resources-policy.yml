@@ -202,13 +202,6 @@ policies:
     filters:
     - or:
       - tag:Environment: absent
-  - name: shield-protection-tag-compliance
-    resource: shield-protection
-    comment: |-
-      Report on total count of non compliant instances
-    filters:
-    - or:
-      - tag:Environment: absent
   - name: vpc-tag-compliance
     resource: vpc
     comment: |-
@@ -363,13 +356,6 @@ policies:
     filters:
     - or:
       - tag:Environment: absent
-  - name: org-policy-tag-compliance
-    resource: org-policy
-    comment: |-
-      Report on total count of non compliant instances
-    filters:
-    - or:
-      - tag:Environment: absent
   - name: iam-certificate-tag-compliance
     resource: iam-certificate
     comment: |-
@@ -449,13 +435,6 @@ policies:
       - tag:Environment: absent
   - name: event-bus-tag-compliance
     resource: event-bus
-    comment: |-
-      Report on total count of non compliant instances
-    filters:
-    - or:
-      - tag:Environment: absent
-  - name: org-unit-tag-compliance
-    resource: org-unit
     comment: |-
       Report on total count of non compliant instances
     filters:
