@@ -15,5 +15,5 @@ COPY CloudCustodian/policies/ /policies
 WORKDIR /app
 
 # Start command: adjust according to the policies file and parameters you need
-CMD ["custodian", "run", "--output-dir", "output", "--region", "us-east-2",  "/policies/"]
+CMD ["custodian", "run", "--output-dir", "output", "--region", "all",  "/policies/"]
 
