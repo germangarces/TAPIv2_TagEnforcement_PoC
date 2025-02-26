@@ -64,3 +64,15 @@ Changes to the policies are automatically validated through GitHub Actions. You 
 ```bash
 custodian validate CloudCustodian/policies/
 ```
+
+## Disclaimer:
+
+I acknowledge there are areas for improvement, but I will not proceed with any changes until we agree on the solution to implement.
+
+**Possible Improvements:**
+
+- Automate the deployment of IAM policies.
+- Develop a tool that lets us define policies in an agnostic format, automatically translating and distributing them in each tool's required format.
+- Implement a CI/CD pipeline for any of the approaches.
+- Improve the credential management for Cloud Custodian deployment
+- Sync with Lukasz and it's Checkov.io implementation.
