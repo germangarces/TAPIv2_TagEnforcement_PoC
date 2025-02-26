@@ -16,6 +16,10 @@ TODO: Automate the creation of policies.
 
 #### 1. Build and push the docker image
 
+I created a Github Action that builds and push the image for you. If you want to do it manually, follow the steps below.
+
+I did this because Netskope SSL interception was blocking the connection to Docker Hub.
+
 ```bash
 docker build -t softwareplant/custodian:latest .
 docker push softwareplant/custodian:latest
