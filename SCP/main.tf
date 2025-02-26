@@ -123,20 +123,12 @@ locals {
 }
 
 # Iterates over the policies map to create multiple instances of the org_policy module
-# module "TAPIv2_SCPs" {
-#   for_each           = local.policies
-#   source             = "./modules/org_policy"
-#   policy_name        = each.value.policy_name
-#   policy_description = "TAPIv2 - Prevents the creation of resources without the specified tag or set of values."
-#   policy_type        = each.value.policy_type
-#   policy_file_path   = each.value.policy_file_path
-#   target_ou_id       = each.value.target_ou_id
-# }
 module "TAPIv2_SCPs" {
+  for_each           = local.policies
   source             = "./modules/org_policy"
-  policy_name        = "TAPIv2 - Tag Policy Test"
+  policy_name        = each.value.policy_name
   policy_description = "TAPIv2 - Prevents the creation of resources without the specified tag or set of values."
-  policy_type        = "TAG_POLICY"
-  policy_file_path   = "policies/TAPIv2_tag_policy_1.json"
-  target_ou_id       = var.target_ou_id_1
+  policy_type        = each.value.policy_type
+  policy_file_path   = each.value.policy_file_path
+  target_ou_id       = each.value.target_ou_id
 }
