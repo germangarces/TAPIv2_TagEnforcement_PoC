@@ -1,7 +1,7 @@
 # TAPIv2_TagEnforcement_PoC
 This repository hosts a PoC for TAPIv2 Tagging Enforcement. It includes IaC for AWS SCPs, AWS IAM Policies and Cloud Custodian, along with a set of tailored policies for each tool.
 
-A brief summary of our tagging policy approaches with direct focus on **risks and limitations** can be found on [the Wiki](https://github.com/germangarces/TAPIv2_TagEnforcement_PoC/wiki).
+A brief summary of our tagging policy approaches with direct focus on risks and limitations can be found on [the Wiki](https://github.com/germangarces/TAPIv2_TagEnforcement_PoC/wiki).
 
 ### 1. Service Control Policies
 
