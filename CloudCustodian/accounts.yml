@@ -1,0 +1,28 @@
+accounts:
+- account_id: '891377226793'
+  display_name: DevOps DTS
+  email: bizsys_mgmt+dod@appfire.com
+  name: DevOps DTS
+  org_id: o-inxc75i4ux
+  regions:
+  - all
+  role: arn:aws:iam::891377226793:role/AppfireCloudCustodian
+  tags:
+  - path:/Infrastructure
+  - path:/Policy Staging/DTS
+  - Brand:Appfire
+  - DataClassification:Internal
+  - Environment:DTS
+  - Exposure:Internal
+  - OwningOrg:DevOps
+  - DeploymentType:Automation
+  - AdminEmail:bizsys_mgmt+dod@appfire.com
+  vars:
+    AdminEmail: bizsys_mgmt+dod@appfire.com
+    Brand: Appfire
+    DataClassification: Internal
+    DeploymentType: Automated
+    Environment: DTS
+    Exposure: Internal
+    OwningOrg: DevOps
+

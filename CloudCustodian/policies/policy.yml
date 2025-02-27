@@ -545,3 +545,14 @@ policies:
     filters:
     - or:
       - tag:Environment: absent
+  - name: sqs-tag-compliance
+    resource: sqs
+    comment: |-
+      Report on total count of non compliant instances
+    filters:
+      - or:
+          - tag:Environment: absent
+    actions:
+      - type: tag
+        tags:
+          Environment: "{Environment}" # Takes the value from accounts.yml

@@ -4,7 +4,7 @@ name: Validate Cloud Custodian Policy
 on:
   push:                # Trigger the workflow on push events
     branches:
-      - main
+      - *
     paths:
       - CloudCustodian/policies/**
 
