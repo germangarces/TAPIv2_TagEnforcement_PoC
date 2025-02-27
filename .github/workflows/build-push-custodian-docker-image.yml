@@ -10,14 +10,13 @@ on:
         options:
           - 'custodian:0.2.0'
           - 'custodian-multi-account:0.1.0'
-      inputs:
-        selected_file:
-          description: 'Choose a file'
-          required: true
-          type: choice
-          options:
-            - 'Dockerfile'
-            - 'Dockerfile-multi-account-support'
+      selected_file:
+        description: 'Choose a file'
+        required: true
+        type: choice
+        options:
+          - 'Dockerfile'
+          - 'Dockerfile-multi-account-support'
 
 jobs:
   build-and-push:
