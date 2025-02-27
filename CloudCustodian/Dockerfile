@@ -19,4 +19,4 @@ WORKDIR /app
 
 # Start command: adjust according to the policies file and parameters you need
 # 0.1.0-alpha.1
-CMD ["custodian", "run", "--output-dir", "output", "--region", "all",  "policies/policy.yml"]
+CMD ["custodian", "run", "--output-dir", "output", "--region", "us-east-2",  "policies/policy.yml"]

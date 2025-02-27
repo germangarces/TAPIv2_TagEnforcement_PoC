@@ -19,4 +19,4 @@ WORKDIR /app
 
 # Start command: adjust according to the policies file and parameters you need
 # 0.1.0-alpha.2
-CMD ["c7n-org", "run", "--config", "accounts.yml", "-u", "policies/policy.yml", "--region", "all", "--output-dir", "output"]
+CMD ["c7n-org", "run", "--config", "accounts.yml", "-u", "policies/policy.yml", "--region", "us-east-2", "--output-dir", "output"]
