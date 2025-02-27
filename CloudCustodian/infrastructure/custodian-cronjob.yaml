@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: custodian-multi-account-cronjob
+spec:
+  schedule: "@daily"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: custodian-sa
+          containers:
+            - name: custodian
+              image: softwareplant/custodian:0.1.0-alpha.1 # TODO: Parametrize tag
+              imagePullPolicy: Always
+          restartPolicy: Never
+          imagePullSecrets:
+            - name: dockerhub-credential
