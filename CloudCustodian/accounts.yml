@@ -33,7 +33,7 @@ accounts:
   org_id: o-inxc75i4ux
   regions:
   - all
-  role: arn:aws:iam::156041420045:role/OrganizationAccountAccessRole
+  role: arn:aws:iam::891377226793:role/AppfireCloudCustodian
   tags:
   - path:/Infrastructure
   - path:/Policy Staging/DTS
