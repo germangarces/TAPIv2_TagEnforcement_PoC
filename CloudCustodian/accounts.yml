@@ -1,31 +1,4 @@
 accounts:
-#- account_id: '156041420045'
-#  display_name: Appfire DevOps EU staging
-#  email: bizsys_mgmt+appdeveustag@appfire.com
-#  name: Appfire DevOps EU staging
-#  org_id: o-inxc75i4ux
-#  regions:
-#  - all
-#  role: arn:aws:iam::156041420045:role/OrganizationAccountAccessRole
-#  tags:
-#  - path:/Policy Staging
-#  - path:/Policy Staging/Appfire Workloads OU
-#  - path:/Policy Staging/Appfire Workloads OU/DTS OU
-#  - Brand:Appfire
-#  - DataClassification:Internal
-#  - Environment:Development
-#  - Exposure:Internal
-#  - OwningOrg:ITOps
-#  - DeploymentType:Manual
-#  - AdminEmail:itops_alerts@appfire.com
-#  vars:
-#    AdminEmail: itops_alerts@appfire.com
-#    Brand: Appfire
-#    DataClassification: Internal
-#    DeploymentType: Manual
-#    Environment: Development
-#    Exposure: Internal
-#    OwningOrg: ITOps
 - account_id: '891377226793'
   display_name: DevOps DTS
   email: bizsys_mgmt+dod@appfire.com
