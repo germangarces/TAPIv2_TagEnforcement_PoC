@@ -18,6 +18,5 @@ COPY CloudCustodian/accounts.yml /app/accounts.yml
 WORKDIR /app
 
 # Start command: adjust according to the policies file and parameters you need
-#CMD ["custodian", "run", "--output-dir", "output", "--region", "all",  "policies/"] # 0.1.0-alpha.1
 # 0.1.0-alpha.2
 CMD ["c7n-org", "run", "--config", "accounts.yml", "-u", "policies/", "--region", "all", "--output-dir", "output"]
