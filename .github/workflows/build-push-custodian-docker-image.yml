@@ -6,6 +6,7 @@ on:
       docker_tag:
         description: 'Docker name:tag'
         required: false
+        type: choice
         options:
           - 'custodian:0.2.0'
           - 'custodian-multi-account:0.1.0'
