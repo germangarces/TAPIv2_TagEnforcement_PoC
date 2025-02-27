@@ -9,4 +9,4 @@ policies:
     actions:
       - type: tag
         tags:
-          Environment: DTS
+          Environment: "{Environment}" # Takes the value from accounts.yml
