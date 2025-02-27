@@ -11,9 +11,6 @@ RUN pip install c7n c7n-org
 # Copy the policies
 COPY CloudCustodian/policies/ /app/policies
 
-# Copy the information about the accounts
-COPY CloudCustodian/accounts.yml /app/accounts.yml
-
 # Set the working directory
 WORKDIR /app
 
