@@ -16,7 +16,7 @@ on:
         type: choice
         options:
           - 'Dockerfile'
-          - 'Dockerfile-multi-account-support'
+          - 'Dockerfile-multi-account'
 
 jobs:
   build-and-push:
@@ -38,6 +38,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: CloudCustodian/${{ github.event.inputs.selected_file }}"
+          file: CloudCustodian/${{ github.event.inputs.selected_file }}
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.event.inputs.docker_tag }}
