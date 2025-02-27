@@ -6,7 +6,6 @@ spec:
   schedule: "@daily"
   jobTemplate:
     spec:
-      suspend: true
       template:
         spec:
           serviceAccountName: custodian-sa
