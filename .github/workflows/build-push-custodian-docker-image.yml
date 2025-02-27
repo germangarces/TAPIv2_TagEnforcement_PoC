@@ -4,9 +4,20 @@ on:
   workflow_dispatch:
     inputs:
       docker_tag:
-        description: 'Docker tag'
+        description: 'Docker name:tag'
         required: false
-        default: 'latest'
+        options:
+          - 'custodian:0.2.0'
+          - 'custodian-multi-account:0.1.0'
+      inputs:
+        selected_file:
+          description: 'Choose a file'
+          required: true
+          default: 'Dockerfile'
+          type: choice
+          options:
+            - Dockerfile
+            - Dockerfile-multi-account-support
 
 jobs:
   build-and-push:
@@ -28,6 +39,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: CloudCustodian/Dockerfile
+          file: CloudCustodian/${{ github.event.inputs.selected_file }}"
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/custodian:${{ github.event.inputs.docker_tag }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.event.inputs.docker_tag }}
