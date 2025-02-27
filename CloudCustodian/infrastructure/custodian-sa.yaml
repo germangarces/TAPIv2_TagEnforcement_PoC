@@ -3,3 +3,5 @@ kind: ServiceAccount
 metadata:
   name: custodian-sa
   namespace: devops
+  annotations:
+    eks.amazonaws.com/role-arn: 'arn:aws:iam::891377226793:role/AppfireCloudCustodian'
