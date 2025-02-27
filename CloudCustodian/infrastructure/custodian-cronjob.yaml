@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: custodian-cronjob
+  name: custodian-multi-account-cronjob
 spec:
   schedule: "@daily"
   jobTemplate:
