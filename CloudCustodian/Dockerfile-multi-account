@@ -5,7 +5,7 @@ LABEL authors="german.garces@appfire.com"
 # Install git
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-# Install Cloud Custodian directly
+# Install Cloud Custodian and c7n-org directly
 RUN pip install c7n c7n-org
 
 # Copy the policies

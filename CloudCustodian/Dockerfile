@@ -2,11 +2,8 @@
 FROM python:3.9-slim
 LABEL authors="german.garces@appfire.com"
 
-# Install git
-RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
-
-# Install Cloud Custodian directly
-RUN pip install c7n
+# Install git and Cloud Custodian
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/* && pip install c7n
 
 # Copy the policies
 COPY CloudCustodian/policies/ /app/policies
