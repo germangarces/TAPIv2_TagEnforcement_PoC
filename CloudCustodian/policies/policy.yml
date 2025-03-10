@@ -37,7 +37,5 @@ policies:
       events:
         - CreateTopic
     actions:
-      - type: tag
-        key: Creator
-        value_from:
-          expression: "event.userIdentity.arn"
+      - type: auto-tag-user
+        tag: Creator

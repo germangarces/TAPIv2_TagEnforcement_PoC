@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 import sys
 import time
 
@@ -14,8 +15,9 @@ class KubernetesDeployer:
     def __init__(self, namespace="devops", verbose=True):
         self.namespace = namespace
         self.verbose = verbose
+
         # Load Kubernetes configuration from the default location (~/.kube/config)
-        config.load_kube_config()
+        config.load_kube_config(context="arn:aws:eks:us-east-2:891377226793:cluster/devops-dts-ohio-aio")
         self.api_client = client.ApiClient()
         self.batch_api = client.BatchV1Api(self.api_client)  # For Job operations
         self.core_api = client.CoreV1Api(self.api_client)  # For ServiceAccount and Pod logs
@@ -100,6 +102,17 @@ class KubernetesDeployer:
             print(f"Error retrieving logs for job {job_name}: {str(e)}")
             return ""
 
+    def delete_job(self, job_name):
+        """
+        Deletes the specified Job.
+        """
+        self.log(f"Deleting Job '{job_name}'")
+        try:
+            self.cronjob_api.delete_namespaced_job(name=job_name, namespace=self.namespace)
+            self.log(f"Job '{job_name}' deleted successfully.")
+        except Exception as e:
+            print(f"Error deleting job '{job_name}': {str(e)}")
+
     def delete_cronjob(self, cronjob_name):
         """
         Deletes a CronJob resource by name.
@@ -161,13 +174,16 @@ def main():
         print(f"Logs from job '{job_name}':")
         print(f"{'-' * 60}\n{logs}\n{'-' * 60}")
         print(f"{'=' * 60}\n")
+        deployer.delete_cronjob(job_name)
+        deployer.delete_cronjob(job_name)
 
     # Ask user confirmation before deleting the CronJobs and ServiceAccount
     confirm_delete = input("Do you want to delete the CronJobs and the ServiceAccount? (yes/no): ").strip().lower()
     if confirm_delete == "yes":
         # Delete each CronJob
-        for cronjob_name, _ in cronjobs:
+        for cronjob_name, job_name in cronjobs:
             deployer.delete_cronjob(cronjob_name)
+            deployer.delete_job(job_name)
         # Delete the ServiceAccount; assumed name is 'custodian-sa'
         deployer.delete_service_account("custodian-sa")
     else:
