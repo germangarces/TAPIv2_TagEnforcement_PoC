@@ -36,7 +36,7 @@ policies:
       type: cloudtrail
       role: arn:aws:iam::891377226793:role/AppfireCloudCustodian
       events:
-        - source: aws.sns
+        - source: sns.amazonaws.com
           event: CreateTopic
           ids: "requestParameters.name"
     actions:
