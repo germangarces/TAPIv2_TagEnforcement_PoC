@@ -34,6 +34,7 @@ policies:
       Autotag SNS resources with its creator.
     mode:
       type: cloudtrail
+      role: arn:aws:iam::891377226793:role/AppfireCloudCustodian
       events:
         - source: sns.amazonaws.com
           event: CreateTopic
