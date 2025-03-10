@@ -16,14 +16,6 @@ policies:
     - or:
       - tag:Environment: absent
 
-  - name: sns-tag-compliance
-    resource: sns
-    comment: |-
-      Report on total count of non compliant instances
-    filters:
-    - or:
-      - tag:Environment: absent
-
   - name: sqs-tag-compliance
     resource: sqs
     comment: |-
@@ -35,3 +27,17 @@ policies:
       - type: tag
         tags:
           Environment: DTS
+
+  - name: sns-tag-compliance
+    resource: sns
+    comment: |-
+      Autotag SNS resources with its creator.
+    mode:
+      type: cloudtrail
+      events:
+        - CreateTopic
+    actions:
+      - type: tag
+        key: Creator
+        value_from:
+          expression: "event.userIdentity.arn"
