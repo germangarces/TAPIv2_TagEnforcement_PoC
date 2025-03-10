@@ -35,7 +35,9 @@ policies:
     mode:
       type: cloudtrail
       events:
-        - CreateTopic
+        - source: sns.amazonaws.com
+          event: CreateTopic
+          ids: "requestParameters.name"
     actions:
       - type: auto-tag-user
         tag: Creator
