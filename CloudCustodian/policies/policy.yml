@@ -39,6 +39,8 @@ policies:
         - source: sns.amazonaws.com
           event: CreateTopic
           ids: "requestParameters.name"
+    filters:
+      - tag:CreatorName: absent
     actions:
       - type: auto-tag-user
-        tag: Creator
+        tag: CreatorName
